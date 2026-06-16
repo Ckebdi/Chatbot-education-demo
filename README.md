@@ -1,67 +1,72 @@
-## 🎓 Chatbot web “Klea” pour EPIE Formation
+# Klea - Chatbot EPIE Formation
 
-Assistant conversationnel front-end intégré au site de formation d’EPIE pour guider les visiteurs (formations, financement, contact, accessibilité).
+Prototype de chatbot conversationnel conçu pour **EPIE Formation**.  
+Ce projet a pour objectif de proposer une base de widget web intégrable sur un site WordPress afin d’orienter les utilisateurs, répondre aux questions fréquentes et faciliter la prise de contact. [file:21]
 
-### 🧠 Fonctionnalités principales
+## Statut du projet
 
-- Widget de chat complet en **HTML / CSS / JavaScript** :
-  - icône flottante en bas à droite
-  - fenêtre de chat ouvrable / refermable
-  - zone de messages, champ de saisie, header avec titre et bouton de fermeture
-- Interface **moderne et responsive** (desktop, tablette, mobile) avec :
-  - couleurs conformes à la charte EPIE (`#00AEEF` et déclinaisons)
-  - bulles de messages arrondies type Messenger
-  - ombres, transitions douces, dark mode automatique
+Ce projet est **en cours de construction** et **n’est pas finalisé**. [file:21]  
+La version actuelle correspond à une base fonctionnelle front-end autonome en HTML, CSS et JavaScript, pensée pour une intégration WordPress. [file:21]
 
-### 💬 Logique de conversation
+## Contenu du dépôt
 
-- Gestion des **messages utilisateur / bot** avec horodatage.
-- Effet “**Klea est en train d’écrire…**” pour simuler la frappe.
-- Suggestions cliquables (formations, financement, contact, horaires, accessibilité…).
-- Détection simple de mots-clés côté front (ex. “contact”, “horaires”, “CPF”…).
+- `src/klea-widget-demo.html` : version de démonstration du widget chatbot. [file:21]
+- `src/klea.css` : styles du composant. [file:21]
+- `src/klea.js` : logique conversationnelle du chatbot. [file:21]
+- `docs/wordpress-installation.md` : notes d’intégration WordPress. [file:21]
+- `docs/proposition-chatbot-pi.html` : document de proposition / évolution conceptuelle, non finalisé et non mis en ligne. [file:22]
 
-### 🌍 Multilingue
+## Fonctionnalités actuelles
 
-- Chatbot **bilingue FR / EN** :
-  - sélecteur de langue dans le header
-  - textes d’interface, suggestions et messages système entièrement traduits
-  - langue par défaut : français, avec possibilité de basculer à tout moment
+- Widget chatbot autonome en HTML / CSS / JavaScript. [file:21]
+- Intégration prévue pour WordPress. [file:21]
+- Interface responsive desktop, tablette et mobile. [file:21]
+- Parcours conversationnel avec suggestions rapides. [file:21]
+- Formulaire conversationnel de contact. [file:21]
+- Préparation d’envoi via Formspree. [file:21]
+- Support multilingue FR / EN. [file:21]
+- Réponses basées sur une logique déterministe, sans IA externe dans la version actuelle. [file:21]
 
-### 🎯 Expérience utilisateur avancée
+## Important
 
-- **Bannière d’accroche intelligente** :
-  - apparition après quelques secondes et/ou scroll
-  - bouton fermer ; si l’utilisateur ferme sans ouvrir, le chatbot se lance automatiquement plus tard
-- **Boutons rapides & menu déroulant** :
-  - accès direct aux pages de formations, contact, financement, etc.
-  - menu compact sur mobile pour éviter de saturer l’écran
-- Bouton **“Réinitialiser la conversation”** toujours accessible.
+Ce dépôt concerne **uniquement le projet chatbot**.  
+Mon portfolio personnel est un **projet séparé** et n’est pas inclus ici. [file:21]
 
-### 📄 Formulaire conversationnel
+## Proposition d’évolution
 
-- Mini **formulaire guidé** directement dans le chat :
-  - prénom, nom, e‑mail, téléphone, situation, formation souhaitée
-  - validation légère (e‑mail, téléphone…) et messages d’erreur dédiés
-- Sauvegarde locale dans `localStorage` des demandes.
-- Prévu pour connexion ultérieure à **Formspree** ou autre backend (envoi automatique par e‑mail).
+Une piste d’évolution du chatbot est présente dans `docs/proposition-chatbot-pi.html`. [file:22]  
+Ce document correspond à une **proposition de conception** et non à une version en production. Il ne reflète pas un service déjà déployé. [file:22]
 
-### 🔐 Transparence & conformité
+## Objectif
 
-- Message explicite indiquant que **Klea est un assistant automatisé** et non un humain.
-- Mention **RGPD** en bas de la fenêtre (données protégées, pas d’IA externe par défaut).
+L’objectif de ce projet est de construire une expérience conversationnelle claire, accessible et utile pour accompagner les visiteurs d’EPIE Formation dans :
+- la découverte des formations ; [file:21]
+- la compréhension des financements ; [file:21]
+- l’accès aux informations pratiques ; [file:21]
+- la prise de contact ou la pré-inscription. [file:21]
 
-### 🧩 Intégration
+## Installation locale
 
-- Conçu comme **widget autonome** :
-  - intégrable dans WordPress via bloc HTML + CSS + JS
-  - structure claire : bannière, bouton launcher, fenêtre de chat, logique JS séparée
-- Version prévue pour connexion à un backend **Rasa** via REST ou Socket.IO.
+1. Cloner le dépôt.
+2. Ouvrir `src/klea-widget-demo.html` dans un navigateur. [file:21]
+3. Extraire ou relier le CSS et le JavaScript si nécessaire pour une intégration plus propre. [file:21]
 
-### 🚀 Résultat
+## Intégration WordPress
 
-Ce chatbot est aujourd’hui :
-- **visuellement prêt pour la production** (UI moderne, responsive, dark mode)
-- **pensé produit** (UX, bannière intelligente, multilingue, formulaire, reset)
-- prêt à être connecté à :
-  - un serveur **Rasa** pour des réponses NLU avancées
-  - un système d’analytics pour suivre les clics et l’usage.
+La base actuelle a été pensée pour une intégration WordPress simple :  
+- le CSS peut être déplacé dans un fichier dédié ou dans le CSS additionnel ; [file:21]
+- le HTML du widget peut être injecté dans le thème ; [file:21]
+- le script peut être chargé séparément via l’enqueue WordPress. [file:21]
+
+## Roadmap
+
+- Nettoyer et modulariser les fichiers. [file:21]
+- Finaliser la structure du dépôt. [file:21]
+- Ajouter une documentation technique plus complète. [file:21]
+- Clarifier la séparation entre version actuelle et proposition d’évolution. [file:21][file:22]
+- Préparer une mise en ligne ou une démonstration propre. [file:21]
+
+## Avertissement
+
+Certaines parties du projet, des contenus et des parcours conversationnels sont encore en cours d’ajustement. [file:21][file:22]  
+Les éléments présents dans ce dépôt ne doivent donc pas être considérés comme une version finale ou officiellement déployée. [file:21][file:22]
