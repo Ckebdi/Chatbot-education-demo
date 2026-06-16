@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposition Chatbot ÉPI — EPIE Formation v2</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --epie:#00AEEF;
+  --epie-dark:#006fa3;
+  --epie-soft:#e8f8ff;
+  --accent:#E8A020;
+  --wheat:#c8a94a;
+  --wheat-soft:#fdf6e3;
+  --success:#22c55e;
+  --bg:#f5fafd;
+  --surface:#ffffff;
+  --surface2:#eef6fb;
+  --border:#d4e9f5;
+  --text1:#0c1f2c;
+  --text2:#4a6578;
+  --text3:#8daab8;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text1);font-size:14px;line-height:1.65;padding:48px 20px}
+.wrap{max-width:880px;margin:0 auto}
+
+/* ─── NAMING EXPLAINER ─── */
+.naming-box{
+  background:var(--wheat-soft);
+  border:1.5px solid var(--wheat);
+  border-radius:18px;
+  padding:30px 34px;
+  margin-bottom:36px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:28px;
+  align-items:start;
+}
+.naming-epi{
+  width:96px;height:96px;
+  background:var(--epie);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  box-shadow:0 6px 24px rgba(0,174,239,.3);
+  flex-shrink:0;
+}
+.epi-icon{font-size:44px;line-height:1}
+.naming-content h2{
+  font-family:'DM Serif Display',serif;
+  font-size:26px;font-weight:400;
+  color:var(--text1);
+  margin-bottom:4px;
+}
+.naming-content h2 em{font-style:italic;color:var(--wheat)}
+.naming-why{
+  font-size:13px;color:var(--text2);
+  line-height:1.7;margin-top:10px;
+}
+.naming-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.npill{
+  background:white;
+  border:1px solid var(--wheat);
+  color:#7a5a10;
+  font-size:11.5px;font-weight:500;
+  padding:3px 11px;border-radius:20px;
+}
+.naming-epie-link{
+  font-size:13px;
+  font-weight:600;
+  color:var(--epie-dark);
+  margin-top:14px;
+  letter-spacing:1px;
+}
+.epie-letters span{color:var(--epie)}
+
+/* ─── HERO ─── */
+.hero{
+  background:linear-gradient(140deg,#002b42 0%,#004d78 45%,#007aad 100%);
+  padding:50px 46px 42px;
+  border-radius:22px;
+  color:white;
+  margin-bottom:36px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(0,174,239,.14)}
+.hero::after{content:'';position:absolute;bottom:-80px;right:120px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05)}
+.hero-label{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;opacity:.55;margin-bottom:14px;font-weight:500}
+.hero h1{font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;line-height:1.18;margin-bottom:14px;position:relative}
+.hero h1 em{font-style:italic;color:#7de2ff}
+.hero h1 strong{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:13.5px;opacity:.7;position:relative;max-width:530px;line-height:1.75}
+.hero-badges{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;position:relative}
+.badge{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);color:white;font-size:10.5px;font-weight:500;padding:4px 12px;border-radius:20px}
+.badge.gold{background:rgba(232,160,32,.2);border-color:rgba(232,160,32,.5);color:#ffd280}
+
+/* ─── SECTION ─── */
+.section{margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:12px;border-bottom:1.5px solid var(--border)}
+.section-num{width:30px;height:30px;background:var(--epie);color:white;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-title{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400}
+.section-sub{font-size:12px;color:var(--text2);margin-left:auto;font-style:italic}
+
+/* ─── CONTEXT BOX ─── */
+.context-banner{
+  background:var(--epie-soft);
+  border:1px solid var(--border);
+  border-left:4px solid var(--epie);
+  border-radius:0 12px 12px 0;
+  padding:14px 18px;
+  margin-bottom:20px;
+  font-size:13px;
+  color:var(--epie-dark);
+}
+.context-banner strong{font-weight:600}
+
+/* ─── ARCH ─── */
+.arch{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:18px}
+.arch-layer{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.arch-lbl{font-size:10px;color:var(--text2);width:82px;text-align:right;flex-shrink:0;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.arch-nodes{display:flex;gap:7px;flex-wrap:wrap;flex:1}
+.an{padding:5px 12px;border-radius:7px;font-size:11.5px;font-weight:500;border:1px solid transparent}
+.an-b{background:#e6f7fd;color:#005d8a;border-color:#a8dcf5}
+.an-g{background:#dcfce7;color:#14532d;border-color:#86efac}
+.an-a{background:#fef9e6;color:#78490a;border-color:#fde68a}
+.an-o{background:#fff2e8;color:#9a3412;border-color:#fbbf7a}
+.an-w{background:var(--wheat-soft);color:#7a5a10;border-color:#e5c97a}
+.an-gr{background:var(--surface);color:var(--text2);border-color:var(--border)}
+.arch-arrow{font-size:16px;color:var(--text3);text-align:center;padding:2px 0 6px;margin-left:92px}
+
+/* ─── FEATURES ─── */
+.features{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 14px;display:flex;gap:12px}
+.feat-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.feat-title{font-size:13px;font-weight:600;margin-bottom:4px}
+.feat-desc{font-size:12px;color:var(--text2);line-height:1.55}
+.feat.bl{border-left:3px solid var(--epie)}
+.feat.or{border-left:3px solid var(--accent)}
+.feat.gr{border-left:3px solid var(--success)}
+.feat.wh{border-left:3px solid var(--wheat)}
+/* NEW: insertion-specific feature highlight */
+.feat.ins{
+  background:var(--wheat-soft);
+  border:1px solid var(--wheat);
+  border-left:3px solid var(--wheat);
+}
+
+/* ─── PERSONA ─── */
+.persona{
+  background:linear-gradient(135deg,var(--epie-soft),#d6f2ff);
+  border:1px solid #a8dcf5;
+  border-radius:18px;
+  padding:28px;
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:26px;
+  align-items:start;
+  margin-bottom:18px;
+}
+.p-av{
+  width:120px;height:120px;
+  background:var(--epie);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:52px;
+  box-shadow:0 6px 22px rgba(0,174,239,.32);
+}
+.p-name{font-family:'DM Serif Display',serif;font-size:30px;color:var(--epie-dark);margin-bottom:2px}
+.p-tag{font-size:12.5px;color:#005a8a;margin-bottom:14px;font-style:italic}
+.p-traits{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.trait{background:white;border:1px solid #a8dcf5;color:#004f80;font-size:11.5px;font-weight:500;padding:3px 10px;border-radius:20px}
+.trait.gold{background:var(--wheat-soft);border-color:var(--wheat);color:#7a5a10}
+.p-quote{font-style:italic;font-size:13px;color:#004a7a;border-left:3px solid var(--epie);padding-left:14px;line-height:1.7}
+.p-dna{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.dna-item{
+  background:white;
+  border:0.5px solid var(--border);
+  border-radius:8px;
+  padding:10px 12px;
+}
+.dna-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:4px}
+.dna-val{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* ─── DEMO ─── */
+.demo{background:var(--surface2);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:18px}
+.demo-hdr{background:var(--epie);padding:14px 20px;display:flex;align-items:center;gap:12px;color:white}
+.demo-av{width:40px;height:40px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+.demo-ttl{font-size:14px;font-weight:500}
+.demo-sub{font-size:10.5px;opacity:.7;margin-top:1px;font-style:italic}
+.demo-online{font-size:11px;opacity:.75;display:flex;align-items:center;gap:5px}
+.dot{width:7px;height:7px;background:#7cfc00;border-radius:50%}
+.demo-body{padding:20px;display:flex;flex-direction:column;gap:14px}
+.msg-row{display:flex;gap:10px;align-items:flex-end}
+.msg-row.u{flex-direction:row-reverse}
+.mini-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px}
+.bav{background:var(--epie);color:white}
+.uav{background:#dde9f0;color:#3a5a70}
+.bubble{max-width:80%;padding:12px 15px;border-radius:18px;font-size:13px;line-height:1.6}
+.bot-b{background:white;border:1px solid var(--border);border-bottom-left-radius:5px;color:var(--text1)}
+.usr-b{background:var(--epie);color:white;border-bottom-right-radius:5px}
+.bubble ul{margin:8px 0 0 16px}
+.bubble li{margin-bottom:4px;font-size:12.5px}
+.bubble strong{font-weight:600}
+.bubble em{font-style:italic;opacity:.9}
+.ts{font-size:10.5px;color:var(--text3);margin-top:4px;padding:0 5px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.chip{background:var(--epie-soft);color:#005a8a;border:1px solid #a8dcf5;font-size:11.5px;padding:3px 10px;border-radius:20px;font-weight:500}
+.annot{font-size:11px;color:#004a7a;background:var(--epie-soft);border-left:3px solid var(--epie);padding:5px 11px;border-radius:0 7px 7px 0;font-style:italic;margin:-6px 0 2px 38px;line-height:1.55}
+.msg-lbl{font-size:11px;color:var(--text2);text-align:center;padding:6px 0;font-weight:500;font-style:italic;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);margin:4px 0}
+
+/* ─── KPIs ─── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:white;border:1px solid var(--border);border-radius:12px;padding:16px 10px;text-align:center}
+.kpi-v{font-family:'DM Serif Display',serif;font-size:30px;color:var(--epie);margin-bottom:4px;line-height:1}
+.kpi-l{font-size:11px;color:var(--text2);line-height:1.45;margin-top:4px}
+.kpi.gold .kpi-v{color:var(--wheat)}
+
+/* ─── AUDIENCE GRID ─── */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.audience-card{background:white;border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.ac-title{font-size:12.5px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.ac-body{font-size:12px;color:var(--text2);line-height:1.55}
+
+/* ─── ROADMAP ─── */
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.phase{border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.ph-hdr{padding:11px 14px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:white}
+.ph1{background:#005a8a}.ph2{background:var(--epie)}.ph3{background:var(--wheat)}
+.ph-body{padding:14px}
+.ph-title{font-size:13px;font-weight:600;margin-bottom:8px}
+.ph-items{list-style:none}
+.ph-items li{font-size:12px;color:var(--text2);padding:3px 0;display:flex;align-items:flex-start;gap:6px}
+.ph-items li::before{content:'→';color:var(--epie);flex-shrink:0;font-size:10.5px;margin-top:2px}
+.ph-items li.new::before{content:'★';color:var(--wheat);font-size:9px;margin-top:3px}
+
+/* ─── STACK ─── */
+.stack{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.stk{background:white;border:1px solid var(--border);border-radius:9px;padding:7px 14px;font-size:12px;color:var(--text2);font-weight:500}
+.stk span{font-size:10px;display:block;opacity:.6;margin-top:1px}
+
+/* ─── CLOSING ─── */
+.closing{background:linear-gradient(140deg,#002b42,#004070);color:white;border-radius:20px;padding:40px;text-align:center;margin-top:8px}
+.closing h3{font-family:'DM Serif Display',serif;font-size:26px;font-weight:400;margin-bottom:10px;line-height:1.35}
+.closing h3 em{font-style:italic;color:#7de2ff}
+.closing h3 strong{font-style:normal;color:var(--accent)}
+.closing p{font-size:13px;opacity:.68;max-width:500px;margin:0 auto 22px;line-height:1.7}
+.cta{background:var(--epie);color:white;border:none;padding:12px 30px;border-radius:28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin:0 6px}
+.cta:hover{background:#009dd8}
+.cta.sec{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25)}
+.cta.sec:hover{background:rgba(255,255,255,.18)}
+.version-tag{
+  text-align:center;
+  font-size:11px;
+  color:var(--text3);
+  margin-bottom:24px;
+  letter-spacing:.5px;
+}
+
+@media(max-width:640px){
+  .features,.roadmap,.kpi-row,.audience-grid{grid-template-columns:1fr}
+  .persona{grid-template-columns:1fr;text-align:center}
+  .p-quote{text-align:left}
+  .p-dna{grid-template-columns:1fr}
+  .hero{padding:30px 22px}
+  .hero h1{font-size:28px}
+  .naming-box{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="version-tag">PROPOSITION V2 · NOM ACTUALISÉ · JUILLET 2025 · FICHIER DISTINCT DE LA V1</div>
+
+<!-- ════════════════════════════════════════════
+     TÂCHE 1 — NOUVEAU NOM : ÉPI
+════════════════════════════════════════════ -->
+<div class="naming-box">
+  <div class="naming-epi">
+    <div class="epi-icon">🌾</div>
+  </div>
+  <div class="naming-content">
+    <h2>Le nouveau nom : <em>Épi</em></h2>
+    <div class="naming-epie-link epie-letters">
+      <span>É</span><span>P</span>IE Formation → <span>ÉP</span>I → <strong>Épi</strong>
+    </div>
+    <div class="naming-why">
+      <strong>Pourquoi "Épi" est le meilleur choix :</strong> Le mot "épi" (de blé) est phonétiquement et visuellement contenu dans <strong>EPIE</strong> — la cohérence de marque est immédiate.
+      Sur le fond, un épi symbolise exactement la mission d'EPIE Formation : faire <strong>germer des compétences</strong>, accompagner un <strong>parcours de croissance</strong>, et conduire à une <strong>récolte</strong> (l'emploi retrouvé).
+      Il est court, mémorisable, sans genre — essentiel pour un public aussi diversifié que celui de Saint-Denis.
+      Contrairement à "Élia" (prénom générique sans ancrage), <em>Épi appartient à EPIE</em>. C'est une extension naturelle de la marque, pas un avatar extérieur.
+    </div>
+    <div class="naming-pills">
+      <span class="npill">Ancré dans EPIE</span>
+      <span class="npill">Symbole de croissance</span>
+      <span class="npill">Sans genre · Inclusif</span>
+      <span class="npill">Court · Mémorisable</span>
+      <span class="npill">100 % français</span>
+      <span class="npill">Logo-ready</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-label">Proposition Lead Tech · V2 — Chatbot <strong>Épi</strong> · Confidentiel 2025</div>
+  <h1>Bonjour, je suis <strong>Épi</strong> —<br>l'assistant <em>qui fait grandir</em></h1>
+  <div class="hero-sub">
+    Vision stratégique et technique complète pour EPIE Formation, ancrée dans leur réalité de terrain : 30 ans d'insertion professionnelle à Saint-Denis, 1 200 stagiaires par an, un public qui mérite un accueil à la hauteur de son courage.
+  </div>
+  <div class="hero-badges">
+    <span class="badge gold">🌾 Épi — nouveau nom</span>
+    <span class="badge">Insertion professionnelle</span>
+    <span class="badge">Multilingue FR/EN</span>
+    <span class="badge">IA générative Claude</span>
+    <span class="badge">Qualification leads</span>
+    <span class="badge">CRM/LMS intégré</span>
+    <span class="badge">Module CPF/OPCO</span>
+    <span class="badge">Qualiopi-ready</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ANALYSE DE MARQUE (nouveau — issu du site)
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">0</div>
+    <div class="section-title">Analyse de marque — ce que le site révèle</div>
+    <div class="section-sub">Base de toute décision produit</div>
+  </div>
+
+  <div class="context-banner">
+    <strong>Source :</strong> analyse du site epie-formation.fr — identité, public, valeurs, contenu éditorial.
+    Ces insights conditionnent directement les choix de persona, de ton et de fonctionnalités prioritaires.
+  </div>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="ac-title">👥 Public principal</div>
+      <div class="ac-body">Demandeurs d'emploi en parcours de réinsertion. Public souvent en fragilité numérique, administrative ou linguistique. Localisé en Seine-Saint-Denis (93) — contexte urbain populaire, forte diversité.</div>
+    </div>
+    <div class="audience-card">
+      <div class="ac-title">🏢 Public secondaire</div>
+      <div class="ac-body">Entreprises partenaires cherchant à former leurs salariés via des programmes sur mesure. Interlocuteurs RH ou responsables formation, langage plus formel attendu.</div>
+    </div>
+    <div class="audience-card">
+      <div class="ac-title">🎯 Mission</div>
+      <div class="ac-body">"Renouer avec le monde du travail par le levier de la formation" — citation directe du site. L'insertion professionnelle n'est pas un service, c'est une <em>vocation</em>. Le chatbot doit l'incarner.</div>
+    </div>
+    <div class="audience-card">
+      <div class="ac-title">⚖️ Valeurs identifiées</div>
+      <div class="ac-body">Accessibilité (PMR, référent handicap), proximité territoriale (30 ans à Saint-Denis), sérieux institutionnel (certification Qualiopi), programmes sur mesure. Chaleur humaine avant tout.</div>
+    </div>
+    <div class="audience-card">
+      <div class="ac-title">📚 Offre de formations</div>
+      <div class="ac-body">4 domaines : Socle de compétences (CléA), Linguistique (FLE, alphabétisation), Numérique, Administratif. Maillage complet des compétences fondamentales pour l'emploi.</div>
+    </div>
+    <div class="audience-card">
+      <div class="ac-title">⚡ Implication chatbot</div>
+      <div class="ac-body">Le bot doit être <em>ultra-accessible</em>, jamais intimidant, capable de traiter des questions linguistiques simples avec patience. L'inclusion n'est pas une option — c'est l'ADN d'EPIE.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     1. ARCHITECTURE
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">Architecture &amp; Fonctionnalités clés</div>
+  </div>
+
+  <div class="arch">
+    <div style="font-size:10px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px">Vue d'ensemble — Architecture Épi</div>
+    <div class="arch-layer">
+      <div class="arch-lbl">Interfaces</div>
+      <div class="arch-nodes">
+        <span class="an an-b">Widget site web</span>
+        <span class="an an-b">Espace apprenant</span>
+        <span class="an an-b">Mobile (PWA)</span>
+        <span class="an an-b">WhatsApp (phase 3)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-lbl">Orchestration</div>
+      <div class="arch-nodes">
+        <span class="an an-a">Intent Router NLU</span>
+        <span class="an an-a">Gestionnaire de session</span>
+        <span class="an an-a">Moteur de dialogue</span>
+        <span class="an an-a">Détecteur langue/niveau</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-lbl">IA &amp; Données</div>
+      <div class="arch-nodes">
+        <span class="an an-g">LLM Claude API</span>
+        <span class="an an-g">FAQ vectorielle EPIE</span>
+        <span class="an an-g">Base formations</span>
+        <span class="an an-g">Mémoire contextuelle</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-lbl">Intégrations</div>
+      <div class="arch-nodes">
+        <span class="an an-o">CRM (HubSpot)</span>
+        <span class="an an-o">LMS (Moodle)</span>
+        <span class="an an-o">Planning sessions</span>
+        <span class="an an-o">CPF / OPCO API</span>
+        <span class="an an-o">Pôle Emploi connect</span>
+        <span class="an an-o">E-mail (SendGrid)</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓</div>
+    <div class="arch-layer">
+      <div class="arch-lbl">Analytics</div>
+      <div class="arch-nodes">
+        <span class="an an-gr">Dashboard admin</span>
+        <span class="an an-gr">Heatmap conversations</span>
+        <span class="an an-gr">Scoring leads</span>
+        <span class="an an-gr">Rapport mensuel auto</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feat bl">
+      <span class="feat-icon">🎯</span>
+      <div><div class="feat-title">Qualification de leads</div><div class="feat-desc">Collecte du profil, projet professionnel, statut (demandeur d'emploi / salarié / entreprise), budget et urgence. Scoring CRM automatique.</div></div>
+    </div>
+    <div class="feat ins">
+      <span class="feat-icon">🤲</span>
+      <div><div class="feat-title">Accueil insertion — clé</div><div class="feat-desc">Questions simples, formulations bienveillantes, détection du niveau linguistique. Jamais de jargon administratif. Adapté au public 93.</div></div>
+    </div>
+    <div class="feat or">
+      <span class="feat-icon">💰</span>
+      <div><div class="feat-title">Guide financement</div><div class="feat-desc">Détection du statut → orientation vers CPF, OPCO, Pôle Emploi, AGEFIPH (handicap), financement employeur. Calcul reste à charge automatique.</div></div>
+    </div>
+    <div class="feat gr">
+      <span class="feat-icon">📅</span>
+      <div><div class="feat-title">Plannings temps réel</div><div class="feat-desc">Sessions disponibles, horaires soirée/samedi, lieux accessibles PMR. Pré-inscription en 2 clics.</div></div>
+    </div>
+    <div class="feat wh">
+      <span class="feat-icon">🌍</span>
+      <div><div class="feat-title">Multilinguisme étendu</div><div class="feat-desc">FR / EN prioritaires, mais architecture prête pour l'arabe et d'autres langues — cohérent avec le public de Saint-Denis.</div></div>
+    </div>
+    <div class="feat gr">
+      <span class="feat-icon">🎓</span>
+      <div><div class="feat-title">Espace apprenant</div><div class="feat-desc">Accès aux supports de cours via LMS Moodle, suivi de progression, rappels d'évaluations et de présence.</div></div>
+    </div>
+    <div class="feat bl">
+      <span class="feat-icon">📚</span>
+      <div><div class="feat-title">FAQ dynamique IA</div><div class="feat-desc">Réponses génératives basées sur la documentation EPIE, mise à jour continue via un pipeline de feedback humain.</div></div>
+    </div>
+    <div class="feat ins">
+      <span class="feat-icon">♿</span>
+      <div><div class="feat-title">Accessibilité renforcée</div><div class="feat-desc">Contraste WCAG AA, taille de police ajustable, mode lecture simplifié. Épi reflète les valeurs inclusives d'EPIE.</div></div>
+    </div>
+    <div class="feat or">
+      <span class="feat-icon">🤝</span>
+      <div><div class="feat-title">Escalade humaine</div><div class="feat-desc">Détection des situations complexes (détresse, handicap, illettrisme) et transfert immédiat avec contexte complet de la conversation.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     2. PERSONA
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">Persona — Épi, l'assistant EPIE Formation</div>
+  </div>
+
+  <div class="persona">
+    <div class="p-av">🌾</div>
+    <div>
+      <div class="p-name">Épi</div>
+      <div class="p-tag">L'assistant EPIE Formation · "Votre premier pas vers l'emploi commence ici"</div>
+      <div class="p-traits">
+        <span class="trait gold">🌾 Ancré dans EPIE</span>
+        <span class="trait">Patient</span>
+        <span class="trait">Chaleureux</span>
+        <span class="trait">Clair</span>
+        <span class="trait">Jamais condescendant</span>
+        <span class="trait">Proactif</span>
+        <span class="trait">Bilingue FR/EN</span>
+        <span class="trait">Accessible</span>
+        <span class="trait">Honnête sur ses limites</span>
+      </div>
+      <div class="p-quote">"Épi n'est pas un bot de démo. Il est conçu pour le public réel d'EPIE : des personnes courageuses qui font la démarche de se former, parfois en surmontant des obstacles enormes. Chaque réponse doit être à la hauteur de ce courage. Bienveillant, simple, efficace — et qui sait passer la main sans jamais faire attendre."</div>
+      <div class="p-dna">
+        <div class="dna-item">
+          <div class="dna-label">Ton avec les prospects</div>
+          <div class="dna-val">Vouvoiement systématique, phrases courtes, une question à la fois. Réassurance constante que la démarche est simple.</div>
+        </div>
+        <div class="dna-item">
+          <div class="dna-label">Ton avec les entreprises</div>
+          <div class="dna-val">Plus formel, orienté ROI et plan de formation. Peut présenter des prestations sur mesure et demander un RDV conseiller.</div>
+        </div>
+        <div class="dna-item">
+          <div class="dna-label">Ce qu'Épi ne fait jamais</div>
+          <div class="dna-val">Jargon administratif, longues listes, fausse empathie ("Je comprends votre frustration…"), jugements implicites sur le niveau.</div>
+        </div>
+        <div class="dna-item">
+          <div class="dna-label">Situation d'escalade</div>
+          <div class="dna-val">Détresse, handicap, illettrisme avancé, situation urgente → transfert immédiat vers conseiller humain, avec résumé du contexte.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     3. SCRIPT DE DÉMO
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">Script de démonstration</div>
+    <div class="section-sub">Demandeur d'emploi · CPF + Pôle Emploi · Inscription CléA</div>
+  </div>
+
+  <div class="context-banner">
+    <strong>Scénario :</strong> Fatima, 34 ans, demandeur d'emploi indemnisé, cherche à se former au numérique pour améliorer ses chances d'embauche. Elle a entendu parler d'EPIE par son conseiller Pôle Emploi. Le parcours dure 11 minutes et se termine par une pré-inscription qualifiée.
+  </div>
+
+  <div class="demo">
+    <div class="demo-hdr">
+      <div class="demo-av">🌾</div>
+      <div>
+        <div class="demo-ttl">Épi — Assistant EPIE Formation</div>
+        <div class="demo-online"><span class="dot"></span> En ligne · Certifié Qualiopi</div>
+      </div>
+    </div>
+    <div class="demo-body">
+
+      <div class="msg-lbl">↓ Fatima arrive sur la page d'accueil via le lien recommandé par son conseiller PE</div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Bonjour et bienvenue chez EPIE Formation ! Je suis Épi, votre assistant 👋<br><br>
+            Êtes-vous en train de chercher une formation, ou avez-vous une question précise ?
+            <div class="chips">
+              <span class="chip">Je cherche une formation</span>
+              <span class="chip">Je suis déjà inscrit(e)</span>
+              <span class="chip">Je représente une entreprise</span>
+            </div>
+          </div>
+          <div class="ts">10:12</div>
+        </div>
+      </div>
+      <div class="annot">→ Ouverture simple, 3 chemins clairs. Pas de baratin, pas de question sur la langue d'emblée pour ne pas stigmatiser</div>
+
+      <div class="msg-row u">
+        <div class="mini-av uav">👤</div>
+        <div>
+          <div class="bubble usr-b">Bonjour je cherche une formation au numérique, mon conseiller Pôle Emploi m'a dit de venir ici</div>
+          <div class="ts" style="text-align:right">10:13</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Très bien, vous êtes au bon endroit ! 😊<br><br>
+            Votre conseiller Pôle Emploi vous a bien orienté — EPIE Formation travaille en partenariat avec eux depuis de nombreuses années.<br><br>
+            Pour vous proposer la formation la plus adaptée, j'ai une question : êtes-vous actuellement en recherche d'emploi ?
+          </div>
+          <div class="ts">10:13</div>
+        </div>
+      </div>
+      <div class="annot">→ Épi valorise immédiatement la démarche de l'utilisateur et le lien Pôle Emploi — réassurance et légitimité</div>
+
+      <div class="msg-row u">
+        <div class="mini-av uav">👤</div>
+        <div>
+          <div class="bubble usr-b">Oui je suis demandeuse d'emploi depuis 8 mois, j'ai un dossier PE</div>
+          <div class="ts" style="text-align:right">10:14</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Merci pour cette information. En tant que demandeuse d'emploi indemnisée, vous avez accès à plusieurs dispositifs de financement — cela signifie que <strong>votre formation peut être entièrement prise en charge</strong>, sans rien débourser.<br><br>
+            Parlons maintenant de vos besoins : dans le numérique, à quel niveau vous situez-vous aujourd'hui ?
+            <div class="chips">
+              <span class="chip">Je débute, peu à l'aise</span>
+              <span class="chip">Je me débrouille un peu</span>
+              <span class="chip">Je veux me certifier</span>
+            </div>
+          </div>
+          <div class="ts">10:14</div>
+        </div>
+      </div>
+      <div class="annot">→ Information financière rassurante dite immédiatement — c'est souvent le premier frein. Puis qualification du niveau sans être condescendant</div>
+
+      <div class="msg-row u">
+        <div class="mini-av uav">👤</div>
+        <div>
+          <div class="bubble usr-b">Je veux me certifier, j'ai entendu parler du CléA mais je sais pas trop ce que c'est</div>
+          <div class="ts" style="text-align:right">10:16</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Excellent choix ! Le <strong>CléA Numérique</strong>, c'est une certification officielle reconnue par tous les employeurs en France. En résumé :<br><br>
+            <ul>
+              <li>Vous apprenez les outils numériques essentiels au travail</li>
+              <li>Vous passez un examen et obtenez un <strong>diplôme reconnu nationalement</strong></li>
+              <li>C'est un vrai "plus" sur votre CV et pour les entretiens d'embauche</li>
+            </ul>
+            <br>La bonne nouvelle : cette certification est dans notre catalogue depuis des années, et <strong>100 % financée</strong> dans votre situation via Pôle Emploi.<br><br>
+            Voulez-vous en savoir plus sur le déroulement ?
+          </div>
+          <div class="ts">10:17</div>
+        </div>
+      </div>
+      <div class="annot">→ Explication simple, concrète, centrée sur la valeur pour l'emploi. Zéro jargon. Confirmation du financement complet</div>
+
+      <div class="msg-row u">
+        <div class="mini-av uav">👤</div>
+        <div>
+          <div class="bubble usr-b">Oui j'aimerais savoir comment ça se passe et si c'est possible le soir ou le samedi car j'ai des enfants</div>
+          <div class="ts" style="text-align:right">10:19</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Bien sûr — voici comment se déroule la formation CléA Numérique chez EPIE :<br><br>
+            <strong>Durée :</strong> 35 heures, sur environ 6 semaines<br>
+            <strong>Format :</strong> Présentiel ou hybride (présentiel + e-learning à domicile)<br>
+            <strong>Horaires :</strong> Créneaux en soirée (18h–21h) ✅ et samedi matin ✅<br>
+            <strong>Lieu :</strong> 6 Rue Edouard Vaillant, Saint-Denis (accessible en métro M13, RER D)<br>
+            <strong>Accessibilité :</strong> Locaux accessibles aux personnes à mobilité réduite<br><br>
+            <strong>Prochaines sessions disponibles :</strong><br>
+            📅 Lundi 9 juin 2025 (soir + samedi)<br>
+            📅 Mardi 1er juillet 2025 (hybride)<br>
+            📅 Lundi 25 août 2025 (soir + samedi)<br><br>
+            Quelle session vous conviendrait le mieux ?
+          </div>
+          <div class="ts">10:20</div>
+        </div>
+      </div>
+      <div class="annot">→ Données temps réel du planning. Mention explicite de l'accessibilité PMR (valeur EPIE). La contrainte parentale est résolue sans y revenir</div>
+
+      <div class="msg-row u">
+        <div class="mini-av uav">👤</div>
+        <div>
+          <div class="bubble usr-b">La session du 9 juin ça m'irait bien. Comment je fais pour m'inscrire ?</div>
+          <div class="ts" style="text-align:right">10:21</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            Parfait ! Voici les prochaines étapes — c'est très simple :<br><br>
+            <strong>1.</strong> Je vous envoie le programme détaillé et un formulaire de pré-inscription par e-mail<br>
+            <strong>2.</strong> Un conseiller EPIE vous rappelle sous 48h pour finaliser votre dossier<br>
+            <strong>3.</strong> Il contacte directement votre conseiller Pôle Emploi pour le volet financement — <em>vous n'avez rien à faire de ce côté</em><br><br>
+            Pour cela, j'ai juste besoin de votre prénom, nom et adresse e-mail.<br><br>
+            <em>Ces informations sont protégées et utilisées uniquement dans le cadre de votre inscription à EPIE Formation.</em>
+          </div>
+          <div class="ts">10:22</div>
+        </div>
+      </div>
+      <div class="annot">→ Les 3 étapes sont claires et rassurantes. EPIE prend en charge le lien Pôle Emploi — c'est ce qui différencie un accompagnement de qualité</div>
+
+      <div class="msg-lbl">→ Fatima renseigne ses coordonnées · Création lead CRM · Tag : "Demandeur d'emploi · CléA Numérique · Session 9 juin · Financement PE" · Score : 🔥 Très chaud</div>
+
+      <div class="msg-row">
+        <div class="mini-av bav">🌾</div>
+        <div>
+          <div class="bubble bot-b">
+            C'est enregistré, merci Fatima ! 🌾<br><br>
+            Vous allez recevoir le programme CléA Numérique dans quelques minutes.<br>
+            Un conseiller EPIE vous contactera dans les <strong>48h ouvrées</strong> pour tout finaliser — il pourra aussi répondre à toutes vos questions en face-à-face ou par téléphone si vous préférez.<br><br>
+            Avez-vous d'autres questions avant de partir ?
+          </div>
+          <div class="ts">10:23</div>
+        </div>
+      </div>
+      <div class="annot">→ Utilisation du prénom (après collecte). Proposition d'un contact humain en alternative — essentiel pour un public qui peut préférer le téléphone. Durée totale : 11 min ✅</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     4. KPIs
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">Résultats attendus</div>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-v">-65%</div><div class="kpi-l">Appels répétitifs entrants (horaires, adresse, tarifs)</div></div>
+    <div class="kpi"><div class="kpi-v">3×</div><div class="kpi-l">Leads qualifiés générés avec contexte complet</div></div>
+    <div class="kpi"><div class="kpi-v">24/7</div><div class="kpi-l">Disponibilité, y compris soirées et week-ends</div></div>
+    <div class="kpi gold"><div class="kpi-v">🌾</div><div class="kpi-l">Cohérence de marque totale avec EPIE Formation</div></div>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-v">11min</div><div class="kpi-l">Durée moyenne de conversion prospect → lead qualifié</div></div>
+    <div class="kpi"><div class="kpi-v">4.6★</div><div class="kpi-l">Satisfaction UX cible (benchmark secteur formation)</div></div>
+    <div class="kpi"><div class="kpi-v">0 €</div><div class="kpi-l">Reste à charge calculé en temps réel pour les DE</div></div>
+    <div class="kpi"><div class="kpi-v">WCAG</div><div class="kpi-l">Conformité accessibilité AA — cohérent avec les valeurs EPIE</div></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     5. ROADMAP
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">Feuille de route — Épi en 3 phases</div>
+  </div>
+  <div class="roadmap">
+    <div class="phase">
+      <div class="ph-hdr ph1">Phase 1 · J+30</div>
+      <div class="ph-body">
+        <div class="ph-title">Les fondations d'Épi</div>
+        <ul class="ph-items">
+          <li>Widget web consolidé (code actuel)</li>
+          <li class="new">Persona Épi — charte de ton complète</li>
+          <li>FAQ IA via Claude API</li>
+          <li>Multilingue FR/EN (arabe en option)</li>
+          <li>Formulaire lead → CRM</li>
+          <li class="new">Mode "demandeur d'emploi" vs "entreprise"</li>
+          <li>RGPD — mentions conformes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="ph-hdr ph2">Phase 2 · J+90</div>
+      <div class="ph-body">
+        <div class="ph-title">L'intelligence métier</div>
+        <ul class="ph-items">
+          <li>Plannings sessions temps réel</li>
+          <li class="new">Module financement CPF + Pôle Emploi</li>
+          <li>Espace apprenant Moodle LMS</li>
+          <li>Escalade humaine contextuelle</li>
+          <li>Dashboard analytique admin</li>
+          <li class="new">Détection situations sensibles (handicap, détresse)</li>
+          <li>Scoring automatique des leads</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="ph-hdr ph3">Phase 3 · J+180</div>
+      <div class="ph-body">
+        <div class="ph-title">L'excellence inclusive</div>
+        <ul class="ph-items">
+          <li>Mémoire long terme par apprenant</li>
+          <li class="new">Recommandations parcours personnalisés</li>
+          <li class="new">Mode lecture simplifiée (FLE, fragilité lect.)</li>
+          <li>WhatsApp Business intégration</li>
+          <li>A/B testing conversationnel</li>
+          <li class="new">Audit accessibilité WCAG AA complet</li>
+          <li>Certification RGPD — audit externe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--text3);text-align:right;margin-top:-10px;font-style:italic">★ = fonctionnalités nouvelles vs proposition V1, issues de l'analyse du site EPIE</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     6. STACK TECHNIQUE
+════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">Stack technique recommandée</div>
+  </div>
+  <div class="stack">
+    <div class="stk">Claude API (Anthropic)<span>LLM backbone · Épi</span></div>
+    <div class="stk">Node.js / FastAPI<span>Backend orchestration</span></div>
+    <div class="stk">Pinecone / pgvector<span>FAQ vectorielle EPIE</span></div>
+    <div class="stk">HubSpot CRM<span>Qualification &amp; suivi leads</span></div>
+    <div class="stk">Moodle REST API<span>LMS — espace apprenant</span></div>
+    <div class="stk">Pôle Emploi API<span>Connect &amp; financement DE</span></div>
+    <div class="stk">Vercel / Railway<span>Hébergement cloud</span></div>
+    <div class="stk">PostHog<span>Analytics &amp; heatmaps</span></div>
+    <div class="stk">SendGrid<span>E-mails transactionnels</span></div>
+    <div class="stk">axe-core<span>Audit accessibilité WCAG</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CLOSING
+════════════════════════════════════════════ -->
+<div class="closing">
+  <h3><em>Épi</em> n'est pas un chatbot.<br>C'est la voix digitale de <strong>30 ans</strong> d'engagement.</h3>
+  <p>Il parle le langage du public d'EPIE : simple, bienveillant, patient. Il connaît les financements, les sessions, les parcours. Et quand il ne sait pas, il passe la main — dignement.</p>
+  <button class="cta">Démarrer la Phase 1 — Épi</button>
+  <button class="cta sec">Revenir à la V1 (Élia)</button>
+</div>
+
+</div>
+</body>
+</html>

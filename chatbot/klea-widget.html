@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klea — Assistant EPIE Formation</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./klea.css">
+</head>
+<body>
+
+  <!-- Page démo (à retirer pour WordPress) -->
+  <div class="demo-pill">🔑 Klea v3 · EPIE Formation · Responsive · Sans IA · WordPress-ready</div>
+
+  <div class="demo-wrap">
+    <div class="demo-card">
+      <div class="demo-logo">🔑</div>
+      <h2>Klea — Assistant EPIE Formation</h2>
+      <p>
+        Cliquez sur le bouton bleu en bas à droite pour ouvrir.<br>
+        Nouveau : <strong>bouton réinitialiser</strong> toujours visible,
+        <strong>accents corrects</strong>, responsive mobile/tablette/desktop.
+      </p>
+      <div class="demo-hint">v3 · Klea · Formulaire conversationnel · Formspree + localStorage</div>
+    </div>
+  </div>
+
+  <!-- WIDGET KLEA -->
+  <div id="klea-banner" role="complementary">
+    <span class="kbn-txt" id="kbn-txt">💬 Une question sur nos formations ?</span>
+    <button class="kbn-x" id="kbn-x" aria-label="Fermer">✕</button>
+  </div>
+
+  <div id="klea-btn" role="button" tabindex="0"
+       aria-label="Ouvrir Klea, l'assistant EPIE Formation"
+       aria-expanded="false">
+    <span class="kico">🔑</span>
+    <span class="kx" aria-hidden="true">×</span>
+  </div>
+
+  <div id="klea-win" class="closed"
+       role="dialog" aria-label="Klea — Assistant EPIE Formation" aria-modal="true">
+
+    <div id="klea-hdr">
+      <div class="hav">KL</div>
+      <div class="hinfo">
+        <div class="hname" id="klea-name">Klea</div>
+        <div class="hstatus">
+          <span class="hdot"></span>
+          <span id="klea-status">Assistante EPIE Formation</span>
+        </div>
+      </div>
+      <select id="klea-lang" aria-label="Choisir la langue">
+        <option value="fr" selected>🇫🇷 FR</option>
+        <option value="en">🇬🇧 EN</option>
+      </select>
+    </div>
+
+    <div id="klea-prog" aria-hidden="true">
+      <div id="klea-prog-bar" style="width:0%"></div>
+    </div>
+
+    <div id="klea-msgs" role="log" aria-live="polite" aria-label="Conversation avec Klea"></div>
+
+    <div id="klea-typ" aria-live="polite">
+      <div class="kdots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="ktlbl" id="ktlbl">Klea écrit…</span>
+    </div>
+
+    <div id="klea-chips" role="group" aria-label="Suggestions rapides"></div>
+
+    <div id="klea-bar">
+      <input type="text" id="klea-input"
+        placeholder="Votre message…"
+        aria-label="Saisir votre message"
+        autocomplete="off" maxlength="300">
+      <button id="klea-send" aria-label="Envoyer">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+
+    <div id="klea-foot">🤖 Assistante automatisée · Pas un humain · Données protégées RGPD</div>
+  </div>
+
+  <script src="./klea.js"></script>
+</body>
+</html>
