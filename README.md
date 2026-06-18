@@ -61,12 +61,12 @@ L’objectif de ce projet est de construire une expérience conversationnelle cl
 La base actuelle a été pensée pour une intégration WordPress simple :
 - le CSS peut être déplacé dans un fichier dédié ou dans le CSS additionnel ;
 - le HTML du widget peut être injecté dans le thème ;
-- le script peut être chargé séparément via l’enqueue WordPress. [file:25]
+- le script peut être chargé séparément via l’enqueue WordPress.
 
 ## Documentation
 
 - Wiki du projet : https://github.com/Ckebdi/Chatbot-education-demo/wiki
-- Feuille de route : GitHub Projects
+- Feuille de route : https://github.com/users/Ckebdi/projects
 
 ## Roadmap
 
