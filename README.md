@@ -1,4 +1,4 @@
-# Klea — Chatbot EPIE Formation
+# Klea : Chatbot EPIE Formation
 
 Prototype de chatbot conversationnel conçu pour **EPIE Formation**.  
 Ce projet a pour objectif de proposer une base de widget web intégrable sur un site WordPress afin d’orienter les utilisateurs, répondre aux questions fréquentes et faciliter la prise de contact.
