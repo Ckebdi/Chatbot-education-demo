@@ -6,7 +6,7 @@ Ce projet a pour objectif de proposer une base de widget web intégrable sur un 
 ## Statut du projet
 
 Ce projet est **en cours de construction** et **n’est pas finalisé**.  
-La version actuelle correspond à une base fonctionnelle front-end autonome en HTML, CSS et JavaScript, pensée pour une intégration WordPress.
+Ce dépôt contient une **version de démonstration** du widget, en HTML, CSS et JavaScript. Le chatbot a été intégré au site WordPress de l’entreprise. Ce site étant en cours de refonte, il n’est actuellement pas visible. Les réponses sont rédigées à l’avance (logique déterministe), sans IA générative.
 
 ## Démo en ligne
 
@@ -31,6 +31,7 @@ La version actuelle correspond à une base fonctionnelle front-end autonome en H
 - Préparation d’envoi via Formspree.
 - Support multilingue FR / EN.
 - Réponses basées sur une logique déterministe, sans IA externe dans la version actuelle.
+- Une première version avait été commencée avec Rasa, avant le passage à ce widget JavaScript.
 
 ## Important
 
